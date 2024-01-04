@@ -2,12 +2,15 @@ package com.denizyercel.springboot.controller;
 
 
 import com.denizyercel.springboot.dto.UserDto;
-import com.denizyercel.springboot.entity.User;
+import com.denizyercel.springboot.exception.ErrorDetails;
+import com.denizyercel.springboot.exception.ResourceNotFoundException;
 import com.denizyercel.springboot.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController

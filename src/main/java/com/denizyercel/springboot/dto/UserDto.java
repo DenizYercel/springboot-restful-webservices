@@ -5,16 +5,16 @@ public class UserDto {
     private Long id;
     private String firstName;
     private String lastName;
-    private String emailAdress;
+    private String email;
 
     public UserDto() {
     }
 
-    public UserDto(Long id, String firstName, String lastName, String emailAdress) {
+    public UserDto(Long id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.emailAdress = emailAdress;
+        this.email = email;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-    public String getEmailAdress() {
-        return emailAdress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailAdress(String emailAdress) {
-        this.emailAdress = emailAdress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
