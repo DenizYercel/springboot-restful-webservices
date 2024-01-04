@@ -1,6 +1,7 @@
 package com.denizyercel.springboot.controller;
 
 
+import com.denizyercel.springboot.dto.UserDto;
 import com.denizyercel.springboot.entity.User;
 import com.denizyercel.springboot.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -20,27 +21,27 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> userCreate(@RequestBody User user){
-        User userSaved = userService.createUser(user);
+    public ResponseEntity<UserDto> userCreate(@RequestBody UserDto user){
+        UserDto userSaved = userService.createUser(user);
         return new ResponseEntity<>(userSaved, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId){
-        User user = userService.getUserById(userId);
+    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId){
+        UserDto user = userService.getUserById(userId);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> userList = userService.getAllUsers();
+    public ResponseEntity<List<UserDto>> getAllUsers(){
+        List<UserDto> userList = userService.getAllUsers();
         return new ResponseEntity<>(userList,HttpStatus.OK);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") Long userId,@RequestBody User user){
+    public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId,@RequestBody UserDto user){
         user.setId(userId);
-        User updateUser = userService.updateUser(user);
+        UserDto updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser,HttpStatus.OK);
     }
 
