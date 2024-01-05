@@ -1,10 +1,17 @@
 package com.denizyercel.springboot.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+
 public class UserDto {
 
     private Long id;
+    @NotEmpty
     private String firstName;
+    @NotEmpty
     private String lastName;
+    @NotEmpty
+    @Email
     private String email;
 
     public UserDto() {

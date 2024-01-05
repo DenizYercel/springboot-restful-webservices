@@ -5,6 +5,7 @@ import com.denizyercel.springboot.dto.UserDto;
 import com.denizyercel.springboot.exception.ErrorDetails;
 import com.denizyercel.springboot.exception.ResourceNotFoundException;
 import com.denizyercel.springboot.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> userCreate(@RequestBody UserDto user){
+    public ResponseEntity<UserDto> userCreate(@Valid  @RequestBody UserDto user){
         UserDto userSaved = userService.createUser(user);
         return new ResponseEntity<>(userSaved, HttpStatus.CREATED);
     }
@@ -42,7 +43,7 @@ public class UserController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId,@RequestBody UserDto user){
+    public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId,@RequestBody @Valid UserDto user){
         user.setId(userId);
         UserDto updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser,HttpStatus.OK);
