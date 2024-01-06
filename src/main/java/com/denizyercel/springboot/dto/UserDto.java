@@ -1,15 +1,31 @@
 package com.denizyercel.springboot.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
+@Schema(
+        description = "UserDto Model Information"
+)
 public class UserDto {
 
     private Long id;
+
+    @Schema(
+            description = "User First Name"
+    )
     @NotEmpty
     private String firstName;
+
+    @Schema(
+            description = "User Last Name"
+    )
     @NotEmpty
     private String lastName;
+
+    @Schema(
+            description = "User Email Address"
+    )
     @NotEmpty
     @Email
     private String email;
